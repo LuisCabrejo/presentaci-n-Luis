@@ -1,283 +1,275 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Organización 4 Millones | El Plan Maestro de Asociación</title>
-
-    <meta property="og:title" content="El Plan Maestro de Asociación | Organización 4 Millones">
-    <meta property="og:description" content="Una invitación para construir un activo empresarial global, respaldado por un socio estratégico libre de deudas y un sistema probado.">
-    <meta property="og:image" content="https://4millones.com/wp-content/uploads/2024/10/gano-excel-social-share-final.png">
-    <link rel="icon" href="https://4millones.com/wp-content/uploads/2025/07/favicon-4millones.com_.png" type="image/png">
+    <title>Academia de Socios 4.0: El Plan Maestro de Expansión</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
-
+    
     <style>
+        /* ========== SISTEMA DE DISEÑO Y BRANDING ========== */
         :root {
-            --primary: #0d1b2a; --secondary: #1b263b; --accent: #e0b1cb;
-            --accent-hover: #c497b2; --blue-grey: #778da9; --dark-text: #1b263b;
-            --text-primary: #f8f9fa; --text-secondary: #dee2e6; --border-light: #415a77;
-            --gradient-primary: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%);
+            --primary: #0d1b2a;
+            --secondary: #415a77;
+            --accent: #e0b1cb;
+            --accent-light: rgba(224, 177, 203, 0.1);
+            --bg-light: #f8f9fa;
+            --bg-dark: #0a1421;
+            --text-primary: #e2e8f0;
+            --text-secondary: #94a3b8;
+            --border-light: rgba(129, 150, 179, 0.2);
             --gradient-accent: linear-gradient(135deg, #e0b1cb 0%, #c497b2 100%);
-            --mentor-bg: rgba(65, 90, 119, 0.1);
+            --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.1);
+            --shadow-strong: 0 8px 32px rgba(0, 0, 0, 0.2);
         }
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        html { font-family: 'Inter', sans-serif; background-color: var(--primary); -webkit-font-smoothing: antialiased; }
-        body { color: var(--text-secondary); line-height: 1.6; overflow-x: hidden; background-color: var(--primary); }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-        section { position: relative; }
-        .py-24 { padding-top: 6rem; padding-bottom: 6rem; }
-        .mt-16 { margin-top: 4rem; }
-        h1, h2, h3 { color: var(--text-primary); font-weight: 800; }
-        h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; }
-        p { color: var(--blue-grey); }
-        .bg-dark-gradient { background: linear-gradient(180deg, #101f30 0%, var(--primary) 100%); }
 
-        /* --- Estilos de la Presentación Principal (Restaurados) --- */
-        .hero-section { min-height: 100vh; display: flex; align-items: center; text-align: center; padding: 6rem 0; position: relative; overflow: hidden; background: var(--gradient-primary); }
-        .hero-section .tag { display: inline-block; background: rgba(224, 177, 203, 0.1); color: var(--accent); padding: 0.5rem 1rem; border-radius: 50px; border: 1px solid rgba(224, 177, 203, 0.2); font-weight: 600; font-size: 0.9rem; margin-bottom: 1.5rem; }
-        .hero-section .title { font-size: clamp(2.5rem, 5vw, 4.5rem); letter-spacing: -0.03em; line-height: 1.1; text-shadow: 0 2px 20px rgba(0,0,0,0.3); }
-        .hero-section .subtitle { max-width: 700px; margin: 1.5rem auto 0; font-size: clamp(1rem, 2vw, 1.25rem); font-weight: 500; }
-        .btn-accent { display: inline-flex; align-items: center; justify-content: center; margin-top: 2.5rem; padding: 1rem 2.5rem; background: var(--gradient-accent); color: var(--primary); text-decoration: none; font-weight: 700; border-radius: 12px; transition: all 0.3s ease; box-shadow: 0 4px 20px rgba(224, 177, 203, 0.2); border: none; cursor: pointer; }
-        .btn-accent:hover { transform: translateY(-4px) scale(1.03); }
-        .card-glass { background: rgba(65, 90, 119, 0.1); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-radius: 16px; padding: 2rem; border: 1px solid rgba(119, 141, 169, 0.2); transition: all 0.3s ease; text-align: center; }
-        .card-glass:hover { transform: translateY(-8px); }
-        .card-glass h3 { font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--text-primary); }
-        .grid { display: grid; }
-        .gap-8 { gap: 2rem; }
+        *, *::before, *::after { box-sizing: border-box; }
 
-        /* --- NUEVO: Botón y Modal para Notas del Estratega --- */
-        .mentor-trigger {
-            position: absolute;
-            top: 2rem;
-            right: 2rem;
-            background: rgba(224, 177, 203, 0.15);
-            color: var(--accent);
-            border: 1px solid var(--accent);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            font-size: 1.5rem;
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ========== ESTRUCTURA Y CONTENEDORES ========== */
+        .container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .header { text-align: center; padding-bottom: 3rem; border-bottom: 1px solid var(--border-light); }
+        .header h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 900; letter-spacing: -0.03em; color: white; margin: 0; }
+        .header .subtitle { font-size: clamp(1rem, 2.5vw, 1.2rem); color: var(--text-secondary); max-width: 650px; margin: 1rem auto 0 auto; }
+        .module { margin-top: 3rem; background-color: var(--primary); border-radius: 24px; border: 1px solid var(--border-light); box-shadow: var(--shadow-strong); overflow: hidden; }
+        .module-header { padding: 1.5rem 2rem; border-bottom: 1px solid var(--border-light); }
+        .module-header h2 { font-size: 1.8rem; font-weight: 800; color: white; margin: 0; }
+
+        /* ========== COMPONENTE INTERACTIVO DESPLEGABLE (ACORDEÓN) ========== */
+        .interactive-trigger { display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 1.25rem; background-color: transparent; border: none; border-bottom: 1px solid var(--border-light); color: var(--text-primary); font-family: 'Inter', sans-serif; font-size: 1.1rem; font-weight: 600; text-align: left; cursor: pointer; transition: background-color 0.3s ease; }
+        .interactive-trigger:hover { background-color: var(--accent-light); }
+        .interactive-trigger:last-of-type { border-bottom: none; }
+        .icon-toggle { width: 24px; height: 24px; flex-shrink: 0; margin-left: 1rem; transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); color: var(--accent); }
+        .interactive-trigger.active .icon-toggle { transform: rotate(45deg); }
+        .interactive-content { max-height: 0; opacity: 0; overflow: hidden; transition: max-height 0.5s ease-out, opacity 0.4s ease-out, padding 0.5s ease-out; background-color: var(--bg-dark); font-size: 1rem; color: var(--text-secondary); }
+        .interactive-content.is-open { opacity: 1; max-height: 2000px; padding: 1.5rem 2rem; border-bottom: 1px solid var(--border-light); }
+        .interactive-content p, .interactive-content ul { margin-top: 0; margin-bottom: 1em; }
+        .interactive-content strong { color: var(--text-primary); font-weight: 600; }
+        .interactive-content ul { padding-left: 1.5rem; list-style-type: '✓ '; }
+
+        /* ========== CITA INTERACTIVA Y MODAL ========== */
+        .cite-trigger {
+            font-size: 0.8rem;
             font-weight: 700;
+            color: var(--accent);
             cursor: pointer;
-            z-index: 10;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            border-bottom: 1px dotted var(--accent);
+            transition: color 0.2s, background-color 0.2s;
         }
-        .mentor-trigger:hover {
-            background: var(--accent);
-            color: var(--primary);
-            transform: scale(1.1);
+        .cite-trigger:hover {
+            background-color: var(--accent-light);
+            color: white;
         }
 
-        .modal-backdrop {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(13, 27, 42, 0.8);
-            backdrop-filter: blur(8px);
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(10, 20, 33, 0.8);
+            backdrop-filter: blur(5px);
+            display: none; align-items: center; justify-content: center;
             z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            padding: 1rem;
             opacity: 0;
-            pointer-events: none;
             transition: opacity 0.3s ease;
         }
-        .modal-backdrop.active {
+        .modal-overlay.is-visible {
+            display: flex;
             opacity: 1;
-            pointer-events: auto;
         }
         
-        .modal-content {
-            background: var(--secondary);
-            color: var(--text-secondary);
-            padding: 2.5rem;
-            border-radius: 16px;
-            max-width: 800px;
-            width: 90%;
-            max-height: 90vh;
-            overflow-y: auto;
+        .modal-box {
+            position: relative;
+            background: var(--primary);
             border: 1px solid var(--border-light);
+            border-radius: 16px;
+            box-shadow: var(--shadow-strong);
+            padding: 2.5rem;
+            max-width: 600px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
             transform: scale(0.95);
             transition: transform 0.3s ease;
         }
-        .modal-backdrop.active .modal-content {
+        .modal-overlay.is-visible .modal-box {
             transform: scale(1);
         }
+
+        .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+        .modal-header h3 { font-size: 1.25rem; color: white; margin: 0; }
+        .modal-close-btn { background: none; border: none; color: var(--text-secondary); font-size: 1.5rem; cursor: pointer; transition: color 0.2s; }
+        .modal-close-btn:hover { color: white; }
         
-        .modal-content h3 {
-            display: flex;
-            align-items: center;
-            font-size: 1.5rem;
-            color: var(--accent);
-            margin-bottom: 1.5rem;
-        }
-        .modal-content p { color: var(--blue-grey); margin-bottom: 1rem; }
-        .modal-content ul { list-style-position: inside; margin-left: 1rem; }
-        .modal-content li { margin-bottom: 0.5rem; }
+        .modal-content { font-size: 1rem; line-height: 1.6; color: var(--text-secondary); }
         .modal-content strong { color: var(--text-primary); }
-        .modal-close {
-            position: absolute;
-            top: 1rem; right: 1rem;
-            background: none; border: none;
-            color: var(--blue-grey);
-            font-size: 2rem;
-            cursor: pointer;
-        }
-        /* Estilos para el resto de la página (calculadora, etc.) deben ir aquí... */
 
     </style>
 </head>
 <body>
 
-    <header id="vision" class="hero-section">
-        <button class="mentor-trigger" data-modal-target="#modal-vision">💡</button>
-        <div class="container">
-            <span class="tag">El Plan Maestro de Asociación</span>
-            <h1 class="title">Conviértete en el Arquitecto de tu Propio Futuro.</h1>
-            <p class="hero-section subtitle">Una invitación para construir un activo empresarial global, respaldado por un socio estratégico libre de deudas y un sistema probado.</p>
-            <a href="#socio-estrategico" class="btn-accent">Descubrir el Plan</a>
-        </div>
-    </header>
+    <div class="container">
+        <header class="header">
+            <h1>Academia de Socios 4.0</h1>
+            <p class="subtitle">El Plan Maestro de Expansión. Una plataforma diseñada para reconfigurar su mentalidad, empoderar su comunicación y acelerar sus resultados.</p>
+        </header>
 
-    <main>
-        <section id="socio-estrategico" class="py-24">
-            <button class="mentor-trigger" data-modal-target="#modal-socio">💡</button>
-            <div class="container text-center">
-                <h2>La Estabilidad es el Nuevo Lujo.</h2>
-                <p class="section-subtitle">En un mundo de incertidumbre, nos asociamos con una potencia global que ha eliminado el riesgo, permitiéndole construir con total confianza.</p>
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
-                    <div class="card-glass"><h3>100% Libre de Deudas</h3><p>Casi 3 décadas de historia con solidez financiera absoluta.</p></div>
-                    <div class="card-glass"><h3>Integración Vertical</h3><p>Control total de la cadena de valor, desde la plantación hasta la entrega.</p></div>
-                    <div class="card-glass"><h3>Infraestructura Global</h3><p>El socio invierte millones en oficinas y sistemas para ti.</p></div>
-                    <div class="card-glass"><h3>Riesgo Operativo Cero</h3><p>Ellos asumen los costos fijos. Es matemáticamente imposible que te quiebres.</p></div>
+        <main>
+            <div class="module">
+                <div class="module-header">
+                    <h2>Módulo 3: Protocolos de Expansión (El Cómo)</h2>
+                </div>
+                
+                <button class="interactive-trigger" aria-expanded="false">
+                    <span>3.1. Tu Activo Más Valioso: La Historia de Origen</span>
+                    <svg class="icon-toggle" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                </button>
+                <div class="interactive-content">
+                    <p>Tu historia personal es tu herramienta de persuasión más potente, estructurada según el "Viaje del Héroe" para resonar profundamente en la psique humana.<span class="cite-trigger" data-cite-id="397">397</span>, <span class="cite-trigger" data-cite-id="399">399</span></p>
+                    
+                    <div style="margin-top: 1rem;">
+                        <button class="interactive-trigger" aria-expanded="false" style="background-color: var(--bg-dark);"><span>1. El Mundo Ordinario</span><svg class="icon-toggle" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg></button>
+                        <div class="interactive-content"><p>Describe tu vida antes de Gano Excel. ¿Cuál era tu insatisfacción o "miseria inicial"<span class="cite-trigger" data-cite-id="402">402</span>, <span class="cite-trigger" data-cite-id="63">63</span>? ¿Techo de ingresos<span class="cite-trigger" data-cite-id="403">403</span>, falta de tiempo<span class="cite-trigger" data-cite-id="403">403</span>, o inseguridad económica<span class="cite-trigger" data-cite-id="403">403</span>? Este es el punto con el que la audiencia se identifica.<span class="cite-trigger" data-cite-id="404">404</span></p></div>
+
+                        <button class="interactive-trigger" aria-expanded="false" style="background-color: var(--bg-dark);"><span>2. El Cruce del Umbral</span><svg class="icon-toggle" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg></button>
+                        <div class="interactive-content"><p>Describe tu escepticismo inicial; esto demuestra que eres racional.<span class="cite-trigger" data-cite-id="406">406</span> ¿Qué te convenció a dar el salto?<span class="cite-trigger" data-cite-id="407">407</span> ¿La confianza en tu mentor, la visión del potencial, la solidez de la empresa?<span class="cite-trigger" data-cite-id="408">408</span> Este momento de decisión es un punto de inflexión.<span class="cite-trigger" data-cite-id="409">409</span></p></div>
+                        
+                        </div>
+                </div>
+
+                 <button class="interactive-trigger" aria-expanded="false">
+                    <span>3.3. Reconfiguración de Objeciones</span>
+                    <svg class="icon-toggle" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                </button>
+                 <div class="interactive-content">
+                    <p>La técnica no es debatir, sino <strong>aceptar, validar y reconfigurar</strong> la objeción hacia un marco más favorable.<span class="cite-trigger" data-cite-id="507">507</span></p>
+                    <p><strong>Objeción: "Eso suena como un esquema piramidal".</strong><span class="cite-trigger" data-cite-id="508">508</span></p>
+                    <p><strong>Respuesta de Reconfiguración Estratégica:</strong></p>
+                    <p style="border-left: 4px solid var(--accent); padding-left: 1rem; color: var(--text-primary);"><em>"Entiendo perfectamente por qué lo preguntas.<span class="cite-trigger" data-cite-id="513">513</span> De hecho, la apariencia de la estructura es una de las razones por las que yo mismo evité modelos similares durante años.<span class="cite-trigger" data-cite-id="514">514</span> Lo que me hizo analizar este en particular fue descubrir que es fundamentalmente un modelo de distribución, muy parecido al que utilizan empresas como Uber o Airbnb.<span class="cite-trigger" data-cite-id="515">515</span> El 100% de los ingresos se genera únicamente cuando un cliente final compra un producto.<span class="cite-trigger" data-cite-id="516">516</span> La pregunta clave para mí no fue sobre la estructura, sino sobre el resultado: ¿es interesante la idea de construir un activo que genere ingresos residuales de un canal de distribución global?".<span class="cite-trigger" data-cite-id="517">517</span></em></p>
                 </div>
             </div>
-        </section>
+            </main>
+    </div>
 
-        <section id="innovacion" class="py-24 bg-dark-gradient">
-            <button class="mentor-trigger" data-modal-target="#modal-innovacion">💡</button>
-             <div class="container text-center">
-                <h2>No Competimos. Dominamos una Nueva Categoría.</h2>
-                <p class="section-subtitle">Nuestro verdadero producto es una innovación patentada en bienestar, integrada inteligentemente en un hábito diario. No tenemos competencia.</p>
-                 </div>
-        </section>
-        
-        </main>
-
-    <footer class="py-16">
-        <div class="container text-center">
-             <h3 style="font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 800; color: white;">Estás a una decisión de distancia.</h3>
-            <p class="section-subtitle mt-4">Si esta visión resuena contigo, el siguiente paso es simple. Contacta a la persona que te compartió este plan maestro.</p>
-            <a id="whatsapp-link" href="#" class="btn-accent mt-8">Estoy listo para ser un socio estratégico</a>
-        </div>
-    </footer>
-    <div id="modal-vision" class="modal-backdrop">
-        <div class="modal-content">
-            <button class="modal-close">&times;</button>
-            <h3>💡 Notas del Estratega: La Primera Impresión</h3>
-            <p>El objetivo de esta primera sección es establecer un marco de **prestigio y oportunidad**, no de necesidad o venta. Se evita hablar de "problemas" para enfocarse en una visión de alto nivel.</p>
-            <ul>
-                [cite_start]<li><strong>Elusión de la Lógica:</strong> En lugar de datos, se apela a la emoción y a la aspiración con palabras como "Arquitecto de tu Futuro" y "Plan Maestro". [cite: 3, 7]</li>
-                [cite_start]<li><strong>Lenguaje de Alto Estatus:</strong> Se usa "Activo Empresarial Global" y "Socio Estratégico" para posicionar la oportunidad muy por encima de un "trabajo extra" desde el primer segundo. [cite: 226]</li>
-            </ul>
+    <div id="citation-modal" class="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3 id="modal-title">Fuente de la Cita</h3>
+                <button id="modal-close" class="modal-close-btn">&times;</button>
+            </div>
+            <div id="modal-content" class="modal-content">
+                <p>El contenido de la cita aparecerá aquí...</p>
+            </div>
         </div>
     </div>
 
-    <div id="modal-socio" class="modal-backdrop">
-        <div class="modal-content">
-            <button class="modal-close">&times;</button>
-            <h3>💡 Notas del Estratega: Construcción de Confianza</h3>
-            [cite_start]<p>Esta sección está diseñada para satisfacer la **Necesidad Humana de Seguridad y Certeza** (Maslow/Robbins) [cite: 97, 98] y para generar confianza a nivel neuroquímico (liberación de oxitocina).</p>
-            <ul>
-                <li><strong>Narrativa de Confianza:</strong> Hablar de "nuestro socio" en lugar de "la empresa" cambia la dinámica. No eres un vendedor, eres un socio invitando a otro. [cite_start]Esto genera conexión. [cite: 173]</li>
-                <li><strong>Anclas de Estabilidad:</strong> Cada punto ("Libre de Deudas", "Integración Vertical") es un ancla que reduce la percepción de riesgo del prospecto. [cite_start]La empresa 100% libre de deudas es un indicador masivo de estabilidad financiera. [cite: 36, 103, 177]</li>
-                <li><strong>Principio de Cialdini (Autoridad):</strong> Al presentar estos datos, se construye una autoridad innegable sin necesidad de presumir. [cite_start]La fortaleza del socio se convierte en tu fortaleza. [cite: 42]</li>
-            </ul>
-        </div>
-    </div>
-    
-    <div id="modal-innovacion" class="modal-backdrop">
-        <div class="modal-content">
-            <button class="modal-close">&times;</button>
-            <h3>💡 Notas del Estratega: La Brecha de Curiosidad</h3>
-            [cite_start]<p>Aquí aplicamos directamente la **"Teoría de la Brecha de Información"** de George Loewenstein. [cite: 66] El objetivo no es informar, es provocar preguntas.</p>
-            <ul>
-                [cite_start]<li><strong>Revelación Controlada:</strong> Se da suficiente información para que el prospecto sepa que hay algo valioso ("innovación patentada", "nueva categoría"), pero no tanta como para satisfacer su curiosidad. [cite: 69, 70]</li>
-                [cite_start]<li><strong>Ingeniería de la Pregunta:</strong> Cada frase está diseñada para que el prospecto piense: <strong>"¿Cuál es esa innovación?"</strong> o <strong>"¿Cómo que no tienen competencia?"</strong>. [cite: 78, 81]</li>
-                <li><strong>Reencuadre del Producto:</strong> Se evita la palabra "café" al principio para posicionar el producto como "tecnología del bienestar". [cite_start]Esto evita la mercantilización y eleva el estatus del producto. [cite: 191, 202]</li>
-            </ul>
-        </div>
-    </div>
 
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        
-        // --- LÓGICA PARA LOS MODALES DE CAPACITACIÓN ---
-        function setupMentorModals() {
-            const triggers = document.querySelectorAll('.mentor-trigger');
-            const closeButtons = document.querySelectorAll('.modal-close');
-            const backdrops = document.querySelectorAll('.modal-backdrop');
+        // ========= BASE DE DATOS DE CITAS =========
+        const CITE_DATA = {
+            '1': 'Una Decisión Inteligente: Transforme el Hábito Más Consumido del Mundo en su Activo Financiero Más Sólido',
+            '2': 'Descubra cómo una taza de café puede ser la respuesta a la salud y la riqueza en la economía actual.',
+            '3': 'CARA A: LA OPORTUNIDAD GLOBAL Y EL VEHÍCULO ÚNICO',
+            // ... (El resto de las 600+ citas irían aquí)
+            '397': 'Su historia personal es la herramienta de persuasión más potente de su arsenal. No es solo un relato de hechos;',
+            '399': 'Para maximizar su impacto, debe estructurarse siguiendo el arquetipo narrativo universal del "Viaje del Héroe", un patrón que resuena profundamente en la psique humana.',
+            '402': 'Con 30 años de experiencia comercial, ¿qué insatisfacción o "miseria inicial" le hizo buscar una alternativa?',
+            '403': '¿Fue el techo de ingresos, la falta de tiempo, la monotonía, o una creciente sensación de inseguridad económica a pesar del éxito aparente?',
+            '404': 'Este es el punto de partida con el que la audiencia puede identificarse.',
+            '406': 'Es crucial describir su escepticismo inicial. Esto demuestra que usted es una persona racional y no crédula.',
+            '407': '¿Qué fue lo que finalmente le convenció para dar el salto?',
+            '408': '¿Fue la confianza en su mentor, una visión del potencial o la solidez de la empresa?',
+            '409': 'Este momento de decisión es un punto de inflexión dramático.',
+            '507': 'La técnica no es debatir una objeción, sino aceptarla, validarla y reconfigurarla hacia un marco más favorable.',
+            '508': 'Objeción Común: "Eso suena como un esquema piramidal".',
+            '513': 'Análisis de la Respuesta: 1) Valida la preocupación ("Entiendo por qué lo preguntas").',
+            '514': '2) Se une a ellos ("yo mismo evité modelos similares").',
+            '515': '3) Reconfigura el modelo usando analogías de alto estatus y tecnológicamente relevantes (Uber, Airbnb).',
+            '516': '4) Establece la legitimidad (ingresos basados en ventas de productos).',
+            '517': '5) Pivota la conversación de vuelta al beneficio central (activo de ingresos residuales), ignorando el marco negativo original.'
+            // ... Y así sucesivamente para todas las citas.
+        };
 
+
+        document.addEventListener('DOMContentLoaded', function () {
+            
+            // ========= LÓGICA PARA EL ACORDEÓN (SIN CAMBIOS) =========
+            const triggers = document.querySelectorAll('.interactive-trigger');
             triggers.forEach(trigger => {
-                trigger.addEventListener('click', () => {
-                    const modalId = trigger.dataset.modalTarget;
-                    const modal = document.querySelector(modalId);
-                    if (modal) {
-                        modal.classList.add('active');
+                trigger.addEventListener('click', function () {
+                    this.classList.toggle('active');
+                    const content = this.nextElementSibling;
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                        content.classList.remove('is-open');
+                    } else {
+                        content.classList.add('is-open');
+                        content.style.maxHeight = content.scrollHeight + "px";
                     }
                 });
             });
 
-            const closeModal = (modal) => {
-                modal.classList.remove('active');
-            };
+            // ========= LÓGICA PARA EL MODAL DE CITAS (NUEVO) =========
+            const modalOverlay = document.getElementById('citation-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalContent = document.getElementById('modal-content');
+            const closeModalBtn = document.getElementById('modal-close');
 
-            closeButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    closeModal(button.closest('.modal-backdrop'));
-                });
-            });
+            function openModal(citeId) {
+                const citationText = CITE_DATA[citeId];
+                if (citationText) {
+                    modalTitle.innerText = `Referencia de la Cita [${citeId}]`;
+                    modalContent.innerHTML = `<blockquote>"${citationText}"</blockquote>`;
+                    modalOverlay.classList.add('is-visible');
+                } else {
+                    console.warn(`Cita no encontrada para el ID: ${citeId}`);
+                }
+            }
 
-            backdrops.forEach(backdrop => {
-                backdrop.addEventListener('click', (e) => {
-                    if (e.target === backdrop) {
-                        closeModal(backdrop);
-                    }
-                });
-            });
+            function closeModal() {
+                modalOverlay.classList.remove('is-visible');
+            }
 
-            document.addEventListener('keydown', (e) => {
-                if (e.key === "Escape") {
-                    const activeModal = document.querySelector('.modal-backdrop.active');
-                    if (activeModal) {
-                        closeModal(activeModal);
-                    }
+            // Event listener para abrir el modal (usando delegación de eventos para eficiencia)
+            document.body.addEventListener('click', function(event) {
+                if (event.target.classList.contains('cite-trigger')) {
+                    const citeId = event.target.dataset.citeId;
+                    openModal(citeId);
                 }
             });
-        }
 
-        // --- LÓGICA PARA EL ENLACE DE WHATSAPP ---
-        function setupWhatsAppLink() {
-            const link = document.getElementById('whatsapp-link');
-            if (!link) return;
-            const params = new URLSearchParams(window.location.search);
-            const phone = params.get('socio');
-            const message = encodeURIComponent("Hola, he revisado el Plan Maestro de Asociación y estoy listo para conversar sobre cómo convertirme en un socio estratégico.");
-            link.href = phone ? `https://wa.me/${phone}?text=${message}` : `https://wa.me/?text=${message}`;
-        }
+            // Event listeners para cerrar el modal
+            closeModalBtn.addEventListener('click', closeModal);
+            modalOverlay.addEventListener('click', function(event) {
+                // Cierra el modal solo si se hace clic en el fondo del overlay
+                if (event.target === modalOverlay) {
+                    closeModal();
+                }
+            });
+            // Cierra el modal con la tecla 'Escape'
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape' && modalOverlay.classList.contains('is-visible')) {
+                    closeModal();
+                }
+            });
 
-
-        // --- INICIALIZACIÓN DE FUNCIONES ---
-        setupMentorModals();
-        setupWhatsAppLink();
-        // Aquí se llamarían las funciones para las calculadoras y gráficos si estuvieran presentes.
-    });
+        });
     </script>
+
 </body>
 </html>
