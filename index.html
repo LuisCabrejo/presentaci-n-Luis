@@ -9,7 +9,7 @@
     <meta property="og:description" content="Una invitación para construir un activo empresarial global, respaldado por un socio estratégico libre de deudas y un sistema probado.">
     <meta property="og:image" content="https://4millones.com/wp-content/uploads/2024/10/gano-excel-social-share-final.png">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://oportunidad.4millones.com/">
+    <meta property="og:url" content="https://presentacion.4millones.com/">
     <meta name="twitter:card" content="summary_large_image">
 
     <link rel="icon" href="https://4millones.com/wp-content/uploads/2025/07/favicon-4millones.com_.png" type="image/png">
@@ -17,19 +17,402 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body class="bg-primary text-gray-300">
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
 
+    <style>
+        /* =================================================================
+           ESTILOS CSS UNIFICADOS
+           Basado en la paleta de colores y tipografía de "Organización 4 Millones"
+           ================================================================= */
+        :root {
+            --primary: #0d1b2a;
+            --secondary: #415a77;
+            --accent: #e0b1cb;
+            --accent-hover: #c497b2;
+            --blue-grey: #778da9;
+            --dark-text: #1b263b;
+            --bg-light: #f8f9fa;
+            --text-primary: #f8f9fa;
+            --text-secondary: #dee2e6;
+            --border-light: #415a77;
+            --gradient-primary: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%);
+            --gradient-accent: linear-gradient(135deg, #e0b1cb 0%, #c497b2 100%);
+            --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.2);
+            --shadow-medium: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--primary);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* --- Hero Section --- */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+            background: var(--gradient-primary);
+        }
+
+        .particles {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            background-image: radial-gradient(circle at 20% 80%, rgba(224, 177, 203, 0.08), transparent 30%),
+                              radial-gradient(circle at 80% 30%, rgba(119, 141, 169, 0.1), transparent 30%);
+            animation: pulse-bg 15s infinite ease-in-out;
+        }
+
+        @keyframes pulse-bg {
+            0%, 100% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); }
+        }
+
+        .hero-section .tag {
+            display: inline-block;
+            background: rgba(224, 177, 203, 0.1);
+            color: var(--accent);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            border: 1px solid rgba(224, 177, 203, 0.2);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-section .title {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 900;
+            color: var(--text-primary);
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        }
+
+        .hero-section .subtitle {
+            max-width: 700px;
+            margin: 1.5rem auto 0;
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: var(--blue-grey);
+            font-weight: 500;
+        }
+
+        .btn-accent {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 2.5rem;
+            padding: 1rem 2.5rem;
+            background: var(--gradient-accent);
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 12px;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 4px 20px rgba(224, 177, 203, 0.2), inset 0 -2px 4px rgba(0,0,0,0.2);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-accent:hover {
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 10px 30px rgba(224, 177, 203, 0.3);
+        }
+
+        /* --- General Section Styling --- */
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: clamp(1rem, 1.5vw, 1.15rem);
+            color: var(--blue-grey);
+            font-weight: 500;
+        }
+
+        .bg-dark-gradient {
+            background: linear-gradient(180deg, #101f30 0%, var(--primary) 100%);
+        }
+
+        .grid { display: grid; }
+        .gap-8 { gap: 2rem; }
+        .mt-16 { margin-top: 4rem; }
+        .py-24 { padding-top: 6rem; padding-bottom: 6rem; }
+
+        /* --- Glassmorphism Cards --- */
+        .card-glass {
+            background: rgba(65, 90, 119, 0.1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid rgba(119, 141, 169, 0.2);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .card-glass:hover {
+            transform: translateY(-8px);
+            background: rgba(65, 90, 119, 0.2);
+            border-color: rgba(119, 141, 169, 0.4);
+        }
+
+        .card-glass h3 {
+            color: var(--text-primary);
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-glass p {
+            color: var(--blue-grey);
+            font-size: 1rem;
+        }
+
+        /* --- Feature Item (Innovación) --- */
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .feature-item .icon {
+            flex-shrink: 0;
+            width: 3rem;
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--accent);
+            color: var(--primary);
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-right: 1.5rem;
+        }
+        
+        .feature-item-content h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .feature-item-content p {
+            color: var(--blue-grey);
+        }
+
+        /* --- Need Cards (Núcleo Humano) --- */
+        .need-card {
+            background: rgba(65, 90, 119, 0.15);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        .need-card:hover {
+            background: var(--accent);
+            color: var(--primary);
+            transform: scale(1.05);
+            border-color: var(--accent);
+        }
+        .need-card .emoji {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* --- Comparison Table --- */
+        .comparison-table {
+            color: var(--text-primary);
+            background: rgba(65, 90, 119, 0.1);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+        }
+        .table-header, .table-row {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 1rem;
+            padding: 1rem 1.5rem;
+            align-items: center;
+        }
+        .table-header {
+            background: rgba(65, 90, 119, 0.2);
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .table-row {
+            border-top: 1px solid var(--border-light);
+        }
+        .table-row div:first-child {
+            font-weight: 600;
+        }
+        .table-header .highlight, .table-row .highlight {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* --- Estratega IA Form --- */
+        #ai-planner {
+            background: rgba(13, 27, 42, 0.7);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-light);
+        }
+        .form-question {
+            margin-bottom: 1.5rem;
+        }
+        .form-question label {
+            font-weight: 600;
+            color: var(--blue-grey);
+            display: block;
+            margin-bottom: 0.75rem;
+        }
+        .form-question input[type="text"], .form-question select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--secondary);
+            border-radius: 0.5rem;
+            transition: all 0.2s;
+            background: var(--primary);
+            color: var(--text-primary);
+            font-size: 1rem;
+        }
+        .form-question input[type="text"]:focus, .form-question select:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: #101f30;
+        }
+        .radio-option {
+            display: block;
+            padding: 1rem;
+            border: 1px solid var(--secondary);
+            border-radius: 0.5rem;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .radio-option input {
+            display: none;
+        }
+        .radio-option.selected {
+            border-color: var(--accent);
+            background-color: rgba(224, 177, 203, 0.1);
+        }
+        .gemini-loader { 
+            border: 4px solid var(--secondary);
+            border-top: 4px solid var(--accent);
+            border-radius: 50%;
+            width: 40px; height: 40px;
+            animation: spin 1s linear infinite; margin: 2rem auto 1rem;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        #action-plan-result {
+            background-color: rgba(224, 177, 203, 0.05);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin-top: 1.5rem;
+            text-align: left;
+            color: var(--text-primary);
+        }
+
+        /* --- Footer --- */
+        footer {
+            border-top: 1px solid var(--secondary);
+        }
+        footer .title {
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-weight: 800;
+            color: white;
+        }
+
+        /* --- Responsive Adjustments --- */
+        @media (max-width: 768px) {
+            .container { padding: 0 1rem; }
+            .py-24 { padding-top: 4rem; padding-bottom: 4rem; }
+            .grid-cols-1-mobile { grid-template-columns: 1fr; }
+            .flex-col-mobile { flex-direction: column; }
+            .table-header, .table-row {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .table-header { display: none; }
+            .table-row {
+                padding: 1.5rem;
+                margin-bottom: 1rem;
+                border: 1px solid var(--border-light);
+                border-radius: 12px;
+            }
+            .table-row div:first-child {
+                font-size: 1.1rem;
+                color: var(--accent);
+            }
+            .table-row div::before {
+                content: attr(data-label);
+                display: block;
+                font-weight: 700;
+                font-size: 0.8rem;
+                text-transform: uppercase;
+                color: var(--blue-grey);
+                margin-bottom: 0.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
     <header id="vision" class="hero-section">
         <div class="particles"></div>
-        <div class="container content">
+        <div class="container">
             <span class="tag">El Plan Maestro de Asociación</span>
             <h1 class="title">Conviértete en el Arquitecto de tu Propio Futuro.</h1>
             <p class="subtitle">Una invitación para construir un activo empresarial global, respaldado por un socio estratégico libre de deudas y un sistema probado.</p>
             <a href="#socio-estrategico" class="btn-accent group">
                 Descubrir el Plan
-                <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" style="width: 1.25rem; height: 1.25rem; margin-left: 0.5rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
             </a>
         </div>
     </header>
@@ -38,28 +421,37 @@
         <section id="socio-estrategico" class="py-24">
             <div class="container text-center">
                 <h2 class="section-title">La Estabilidad es el Nuevo Lujo.</h2>
-                <p class="section-subtitle">En un mundo de incertidumbre, nos asociamos con una potencia global que ha eliminado el riesgo.</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
-                    <div class="card-glass"><h3>100% Libre de Deudas</h3><p>Casi 30 años de historia con solidez financiera absoluta.</p></div>
-                    <div class="card-glass"><h3>Integración Vertical</h3><p>Control total de la cadena de valor, desde la plantación hasta la entrega.</p></div>
-                    <div class="card-glass"><h3>Infraestructura Global</h3><p>El socio invierte millones en oficinas y sistemas para ti.</p></div>
-                    <div class="card-glass"><h3>Riesgo Operativo Cero</h3><p>Ellos asumen los costos fijos. Es imposible que te quiebres.</p></div>
+                [cite_start]<p class="section-subtitle">En un mundo de incertidumbre, nos asociamos con una potencia global que ha eliminado el riesgo, permitiéndole construir con total confianza[cite: 387].</p>
+                <div class="grid grid-cols-1-mobile md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
+                    <div class="card-glass"><h3>100% Libre de Deudas</h3><p>Casi 3 décadas sin deber un centavo. [cite_start]Solidez financiera absoluta. [cite: 36, 103, 177]</p></div>
+                    [cite_start]<div class="card-glass"><h3>Integración Vertical</h3><p>Control total de la cadena de valor, desde la plantación hasta la entrega. [cite: 36, 104, 180]</p></div>
+                    [cite_start]<div class="card-glass"><h3>Infraestructura Global</h3><p>El socio invierte millones en oficinas y sistemas para que tú no tengas que hacerlo. [cite: 105, 182, 183]</p></div>
+                    [cite_start]<div class="card-glass"><h3>Riesgo Operativo Cero</h3><p>Ellos asumen TODOS los costos: oficinas, empleados, sistemas, importaciones. [cite: 106, 380]</p></div>
                 </div>
             </div>
         </section>
 
         <section id="innovacion" class="py-24 bg-dark-gradient">
             <div class="container text-center">
-                 <h2 class="section-title">No Competimos. Dominamos una Nueva Categoría.</h2>
-                 <p class="section-subtitle">Nuestro verdadero producto es una innovación patentada en bienestar, integrada inteligentemente en un hábito diario.</p>
-                <div class="mt-16 flex flex-col md:flex-row items-center gap-12">
+                <h2 class="section-title">No Competimos. Dominamos una Nueva Categoría.</h2>
+                [cite_start]<p class="section-subtitle">Nuestro verdadero producto es una innovación patentada en bienestar, integrada inteligentemente en un hábito diario. [cite: 191, 197, 198] [cite_start]No tenemos competencia. [cite: 204]</p>
+                <div class="mt-16 flex flex-col-mobile md:flex-row items-center gap-8">
                     <div class="md:w-1/2 text-left">
-                        <div class="feature-item"><span>1</span><div><h4>Origen Patentado</h4><p>Un extracto único que fusiona las 6 variedades más potentes del Ganoderma Lucidum.</p></div></div>
-                        <div class="feature-item"><span>2</span><div><h4>Ventaja Científica</h4><p>Sistema de entrega 100% hidrosoluble para máxima absorción de sus 200+ fitonutrientes.</p></div></div>
-                        <div class="feature-item"><span>3</span><div><h4>Genialidad de Mercado</h4><p>No creamos nuevos hábitos, mejoramos los existentes. Cero fricción para el consumidor.</p></div></div>
+                        <div class="feature-item">
+                            <div class="icon">🧬</div>
+                            [cite_start]<div class="feature-item-content"><h4>Origen Patentado</h4><p>Un extracto único que fusiona las seis variedades más potentes del Ganoderma Lucidum. [cite: 194]</p></div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="icon">💧</div>
+                            [cite_start]<div class="feature-item-content"><h4>Ventaja Científica</h4><p>Sistema de entrega 100% hidrosoluble para máxima absorción de sus 200+ fitonutrientes. [cite: 49, 194]</p></div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="icon">☕</div>
+                            <div class="feature-item-content"><h4>Genialidad de Mercado</h4><p>No creamos nuevos hábitos, mejoramos los existentes. [cite_start]Cero fricción para el consumidor. [cite: 198, 199]</p></div>
+                        </div>
                     </div>
                     <div class="md:w-1/2">
-                        <img src="https://4millones.com/wp-content/uploads/2025/07/ganoderma-lucidum-abstract-min.png" alt="Innovación en Bienestar" class="rounded-2xl shadow-xl">
+                        <img src="https://4millones.com/wp-content/uploads/2025/07/ganoderma-lucidum-abstract-min.png" alt="Innovación en Bienestar" style="border-radius: 1rem; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
                     </div>
                 </div>
             </div>
@@ -68,65 +460,261 @@
         <section id="modelo-negocio" class="py-24">
             <div class="container text-center">
                 <h2 class="section-title">Tu Franquicia Personal de Expansión.</h2>
-                <p class="section-subtitle">Un modelo de negocio "llave en mano": sistema probado, marca global y apoyo continuo, sin las barreras de una franquicia tradicional.</p>
+                [cite_start]<p class="section-subtitle">Un modelo de negocio "llave en mano": sistema probado, marca global y apoyo continuo, sin las barreras de una franquicia tradicional. [cite: 208, 209, 221]</p>
                 <div class="comparison-table mt-16">
                     </div>
             </div>
         </section>
 
-        <section id="simulador" class="py-24 bg-dark-gradient">
-            <div class="container">
-                <div class="text-center">
-                    <h2 class="section-title">El Simulador de Visión.</h2>
-                    <p class="section-subtitle">Esto no es un salario. Es la construcción de un activo. Proyecta el potencial de tu Franquicia Personal.</p>
-                </div>
-                <div id="calculator-app" class="mt-16">
-                    </div>
-            </div>
-        </section>
-
-        <section id="nucleo-humano" class="py-24">
+        <section id="nucleo-humano" class="py-24 bg-dark-gradient">
             <div class="container text-center">
                  <h2 class="section-title">Un Negocio Diseñado para la Realización Humana.</h2>
-                 <p class="section-subtitle">Más allá de los ingresos, este proyecto responde a nuestras necesidades más profundas.</p>
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-8 mt-16">
-                    <div class="need-card">🛡️<h4>Seguridad</h4></div>
-                    <div class="need-card">🏆<h4>Reconocimiento</h4></div>
-                    <div class="need-card">🤝<h4>Conexión</h4></div>
-                    <div class="need-card">🚀<h4>Crecimiento</h4></div>
-                    <div class="need-card">❤️<h4>Contribución</h4></div>
-                    <div class="need-card">🌍<h4>Dinamismo</h4></div>
+                 [cite_start]<p class="section-subtitle">Una decisión de negocio exitosa no solo debe ser lógica, debe satisfacer nuestras necesidades más profundas. [cite: 94]</p>
+                <div class="grid grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+                    [cite_start]<div class="need-card"><span class="emoji">🛡️</span><h4>Seguridad</h4><p class="text-xs text-blue-grey mt-2">Un activo a prueba de recesiones sobre una empresa sólida. [cite: 97]</p></div>
+                    [cite_start]<div class="need-card"><span class="emoji">🏆</span><h4>Reconocimiento</h4><p class="text-xs text-blue-grey mt-2">Un plan de carrera que celebra tu liderazgo. [cite: 113, 115]</p></div>
+                    <div class="need-card"><span class="emoji">🤝</span><h4>Conexión</h4><p class="text-xs text-blue-grey mt-2">Parte de una comunidad global de apoyo. [cite_start]Nunca estás solo. [cite: 121, 124]</p></div>
+                    [cite_start]<div class="need-card"><span class="emoji">🚀</span><h4>Crecimiento</h4><p class="text-xs text-blue-grey mt-2">Un programa de desarrollo personal disfrazado de negocio. [cite: 129, 131]</p></div>
+                    [cite_start]<div class="need-card"><span class="emoji">❤️</span><h4>Contribución</h4><p class="text-xs text-blue-grey mt-2">Transforma vidas llevando bienestar y prosperidad. [cite: 139, 142]</p></div>
+                    <div class="need-card"><span class="emoji">🌍</span><h4>Dinamismo</h4><p class="text-xs text-blue-grey mt-2">Adiós a la rutina. [cite_start]Nuevos retos, conexiones y viajes. [cite: 149, 151]</p></div>
                 </div>
             </div>
         </section>
-
-        <section id="estratega-ia" class="py-24 bg-dark-gradient">
+        
+        <section id="estratega-ia" class="py-24">
             <div class="container">
                  <div class="text-center">
                     <span class="tag">BONUS ESTRATÉGICO</span>
                     <h2 class="section-title mt-4">Tu Mentor Estratégico con IA.</h2>
-                    <p class="section-subtitle">Responde 7 preguntas y nuestra IA creará tu plan de acción personalizado de 30 días, basado en el sistema de éxito del equipo.</p>
+                    [cite_start]<p class="section-subtitle">Responde 7 preguntas y nuestra IA, basada en el sistema de éxito del equipo, creará tu plan de acción personalizado de 30 días. [cite: 384]</p>
                 </div>
                 <div id="ai-planner" class="mt-12 max-w-3xl mx-auto">
+                    <form id="goal-form" class="space-y-6">
+                        <div class="form-question"><label for="user-name">1. ¿Cuál es tu nombre?</label><input type="text" id="user-name" name="user-name" placeholder="Escribe tu nombre aquí" required></div>
+                        <div class="form-question"><label>2. ¿Con qué paquete de inversión empresarial iniciarás?</label>
+                            <div id="package-choice">
+                                <label class="radio-option"><input type="radio" name="package" value="ESP3" checked><span>Paquete Empresarial ESP 3</span></label>
+                                <label class="radio-option"><input type="radio" name="package" value="ESP2"><span>Paquete Empresarial ESP 2</span></label>
+                                <label class="radio-option"><input type="radio" name="package" value="ESP1"><span>Paquete Empresarial ESP 1</span></label>
+                            </div>
+                        </div>
+                        <div class="form-question"><label for="motivation">3. ¿Cuál es tu motor principal (tu 'Gran Porqué')?</label>
+                            <select name="motivation" id="motivation">
+                                <option value="Seguridad: Crear un 'Plan B' sólido y un patrimonio heredable.">Seguridad y Patrimonio</option>
+                                <option value="Reconocimiento: Convertirme en un líder influyente y ser reconocido.">Liderazgo y Reconocimiento</option>
+                                <option value="Autonomía y Viajes: Tener autonomía de tiempo y calificar a los viajes.">Autonomía y Viajes</option>
+                                <option value="Crecimiento: Desarrollar nuevas habilidades y convertirme en mi mejor versión.">Crecimiento Personal</option>
+                                <option value="Contribución: Ayudar a otras personas a mejorar su salud y sus finanzas.">Ayudar a Otros</oí>
+                            </select>
+                        </div>
+                        <div class="form-question"><label for="personal-goal">4. ¿Qué sueño inmediato te gustaría cumplir con tus primeros ingresos?</label><input type="text" id="personal-goal" name="personal-goal" placeholder="Ej: Pagar una deuda, las próximas vacaciones..."></div>
+                        <div class="form-question"><label for="health-goal">5. Para ser 'producto del producto', ¿qué área de bienestar quieres mejorar?</label><input type="text" id="health-goal" name="health-goal" placeholder="Ej: Mejorar mi energía, manejar el estrés..." required></div>
+                        <div class="form-question"><label>6. El éxito ama la velocidad. ¿A cuántas personas te comprometes a presentarles la visión en 48 horas?</label>
+                            <div id="commitment">
+                                <label class="radio-option"><input type="radio" name="commitment" value="a mis 2 mejores prospectos" checked><span>A mis 2 mejores prospectos</span></label>
+                                <label class="radio-option"><input type="radio" name="commitment" value="a 4 personas de mi círculo de confianza"><span>A 4 personas de confianza</span></label>
+                                <label class="radio-option"><input type="radio" name="commitment" value="a más de 5! Estoy listo para correr"><span>¡A más de 5! Listo para correr</span></label>
+                            </div>
+                        </div>
+                        <div id="form-error" class="text-red-500 text-center" style="display: none; color: #ff9494;">Por favor, complete su nombre y meta de bienestar.</div>
+                        <div class="text-center mt-8"><button type="button" id="generate-plan-btn" class="btn-accent">✨ Crear Mi Plan de Acción</button></div>
+                    </form>
+                    
+                    <div id="plan-loader-container" class="text-center" style="display: none;">
+                        <div class="gemini-loader"></div>
+                        <p class="font-semibold mt-4 text-blue-grey">✨ Personalizando tu camino al éxito...</p>
                     </div>
+
+                    <div id="action-plan-result" style="display: none;"></div>
+
+                    <div id="plan-actions" class="mt-6 text-center" style="display: none;">
+                        <button id="copy-plan-btn" class="btn-accent" style="background: var(--secondary);">Copiar Plan</button>
+                    </div>
+                </div>
             </div>
         </section>
-
     </main>
 
-    <footer class="py-16 border-t border-secondary">
+    <footer class="py-16">
         <div class="container text-center">
-            <h3 class="text-3xl font-bold text-white">Estás a una decisión de distancia.</h3>
-            <p class="mt-4 text-lg text-blue-grey max-w-2xl mx-auto">Si esta visión resuena contigo, el siguiente paso es simple. Contacta a la persona que te compartió este plan maestro.</p>
+            <h3 class="title">Estás a una decisión de distancia.</h3>
+            <p class="section-subtitle mt-4">Si esta visión resuena contigo, el siguiente paso es simple. Contacta a la persona que te compartió este plan maestro.</p>
             <a id="whatsapp-link" href="#" class="btn-accent group mt-8">
+                <svg style="width: 1.5rem; height: 1.5rem; margin-right: 0.75rem;" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99 0-3.903-.52-5.586-1.456l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.451-4.437-9.887-9.888-9.888-5.452 0-9.888 4.436-9.889 9.888-.001 2.225.651 4.315 1.847 6.062l-1.07 3.908 3.996-1.044z"></path></svg>
                 Estoy listo para ser un socio estratégico
-                <svg class="w-6 h-6 ml-3" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l..."></path></svg> </a>
-            <p class="text-xs text-blue-grey mt-12 max-w-4xl mx-auto">Nota Legal: Esta página y sus herramientas son de presentación y no constituyen una promesa de ingresos. Los resultados son fruto del esfuerzo, dedicación y las ventas generadas en su organización.</p>
+            </a>
+            <p class="text-xs text-blue-grey mt-12 max-w-4xl mx-auto">Nota Legal: Esta página y sus herramientas son de presentación y no constituyen una promesa de ingresos. Los resultados son fruto del esfuerzo, dedicación y las ventas de productos generadas en su organización. Los valores son ilustrativos y no garantizan resultados.</p>
             <p class="text-sm text-secondary mt-4">&copy; 2025 | 4millones.com - Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
-    <script src="js/main.js" defer></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // ============== LÓGICA DE LA APLICACIÓN ==============
+
+        function setupComparisonTable() {
+            const container = document.querySelector('.comparison-table');
+            if (!container) return;
+            
+            const data = [
+                [cite_start]{ metric: 'Capital Inicial en Riesgo', traditional: 'Alto a Extremo [cite: 380][cite_start]', gano: 'Bajo (Inversión en producto) [cite: 380]' },
+                [cite_start]{ metric: 'Exposición al Riesgo', traditional: 'Muy Alto (Deuda, quiebra) [cite: 380][cite_start]', gano: 'Casi Nulo (Sin costos fijos) [cite: 39, 380]' },
+                [cite_start]{ metric: 'Costos Operativos Mensuales', traditional: 'Altos (Alquiler, salarios) [cite: 380][cite_start]', gano: 'Mínimos (Consumo personal) [cite: 380]'},
+                [cite_start]{ metric: 'Sistema de Apoyo', traditional: 'Inexistente (Estás solo) [cite: 380][cite_start]', gano: 'Completo (Mentoría, Equipo) [cite: 380]'},
+                [cite_start]{ metric: 'Tipo de Ingreso', traditional: 'Lineal (Tiempo x Dinero) [cite: 380][cite_start]', gano: 'Residual y Apalancado [cite: 380]'},
+                [cite_start]{ metric: 'Escalabilidad', traditional: 'Limitada por capital [cite: 380][cite_start]', gano: 'Global e Ilimitada [cite: 380]'},
+                [cite_start]{ metric: 'Estilo de Vida', traditional: 'Absorbente, alto estrés [cite: 380][cite_start]', gano: 'Flexible, Libertad de tiempo [cite: 380]'}
+            ];
+            
+            let tableHTML = `
+                <div class="table-header">
+                    <div>Métrica Empresarial</div>
+                    <div>Emprendimiento Tradicional</div>
+                    <div class="highlight">La Franquicia Personal Gano Excel</div>
+                </div>`;
+                
+            data.forEach(row => {
+                tableHTML += `
+                    <div class="table-row">
+                        <div data-label="Métrica">${row.metric}</div>
+                        <div data-label="Emprendimiento Tradicional">${row.traditional}</div>
+                        <div data-label="Franquicia Gano Excel" class="highlight">${row.gano}</div>
+                    </div>`;
+            });
+            
+            container.innerHTML = tableHTML;
+        }
+
+        function setupWhatsAppLink() {
+            const link = document.getElementById('whatsapp-link');
+            if (!link) return;
+
+            const params = new URLSearchParams(window.location.search);
+            const phone = params.get('socio');
+            let message;
+
+            if (phone) {
+                message = encodeURIComponent("Hola, he revisado el Plan Maestro de Asociación y estoy listo para conversar sobre cómo convertirme en un socio estratégico.");
+                link.href = `https://wa.me/${phone}?text=${message}`;
+            } else {
+                message = encodeURIComponent("Hola, he revisado el Plan Maestro de Asociación y me gustaría saber más.");
+                link.href = `https://wa.me/?text=${message}`;
+            }
+        }
+
+        function setupAIPlanner() {
+            const form = document.getElementById('goal-form');
+            const generateBtn = document.getElementById('generate-plan-btn');
+            const errorEl = document.getElementById('form-error');
+            const loader = document.getElementById('plan-loader-container');
+            const resultContainer = document.getElementById('action-plan-result');
+            const actionsContainer = document.getElementById('plan-actions');
+            const copyBtn = document.getElementById('copy-plan-btn');
+            
+            if (!form || !generateBtn) return;
+
+            // Manejo de la selección de radio buttons para feedback visual
+            const radioContainers = form.querySelectorAll('#package-choice, #commitment');
+            radioContainers.forEach(container => {
+                container.addEventListener('change', (e) => {
+                    if (e.target.type === 'radio') {
+                        const name = e.target.name;
+                        container.querySelectorAll('.radio-option').forEach(label => {
+                            label.classList.remove('selected');
+                        });
+                        e.target.closest('.radio-option').classList.add('selected');
+                    }
+                });
+            });
+
+
+            generateBtn.addEventListener('click', async () => {
+                const formData = {
+                    userName: form.elements['user-name'].value.trim(),
+                    selectedPackage: form.elements['package'].value,
+                    motivation: form.elements['motivation'].value,
+                    personalGoal: form.elements['personal-goal'].value.trim() || "No especificado",
+                    healthGoal: form.elements['health-goal'].value.trim(),
+                    commitment: form.elements['commitment'].value,
+                };
+
+                if (!formData.userName || !formData.healthGoal) {
+                    errorEl.style.display = 'block';
+                    return;
+                }
+
+                errorEl.style.display = 'none';
+                form.style.display = 'none';
+                loader.style.display = 'block';
+                resultContainer.style.display = 'none';
+                actionsContainer.style.display = 'none';
+                
+                // Simulación de llamada a API para demostración
+                // En producción, aquí iría el fetch a /api/generate-plan
+                setTimeout(() => {
+                    const fakeApiResponse = `
+#### ¡Bienvenido a la familia Gano Excel, ${formData.userName}!
+
+Este es tu plan de acción personalizado, diseñado para convertir tu visión en resultados tangibles. Tu motor es **${formData.motivation.split(':')[0]}**, y cada paso está pensado para acercarte a esa meta.
+
+---
+
+#### **Tu Plan de 48 Horas (Arranque Explosivo)**
+
+El objetivo es simple: generar tu primera victoria y validar tu decisión. Dado que te comprometiste a contactar a **${formData.commitment}**, haremos lo siguiente:
+
+* **Acción Inmediata:** Prepara una lista con los nombres de esas personas. No prejuzgues, solo anota.
+* **Llamada de Edificación:** Contacta a tu línea de auspicio para coordinar las primeras llamadas. El objetivo no es que tú presentes, sino que apalanques la experiencia de tu equipo para compartir la visión.
+* **Meta de Bienestar:** Comienza a consumir el producto para mejorar tu **${formData.healthGoal}**. Tu testimonio personal será tu herramienta más poderosa.
+
+---
+
+#### **Tu Plan de 5 Semanas (Modelo de Duplicación GEN5)**
+
+Este es el mapa para construir tu activo empresarial.
+
+* **Semana 1: Tus Primeros Socios.** Aplicaremos tu 'Plan de 48 Horas' para integrar a tus 2 primeros socios estratégicos. El enfoque es el acompañamiento total de tu equipo.
+
+* **Semana 2: La Duplicación Inicial.** Tu meta es guiar a tus 2 socios para que, con tu apoyo y el del sistema, ellos también integren a sus 2. Aquí pasas de 'recibir ayuda' a 'aprender a ayudar'.
+
+* **Semanas 3, 4 y 5: Expansión.** Continuamos el patrón de duplicación en las nuevas generaciones. Tu rol evoluciona al de un líder que enseña a otros a enseñar, creando un crecimiento exponencial.
+
+---
+Recuerda, ${formData.userName}, cada acción te acerca a ese sueño de **${formData.personalGoal}**. ¡Vamos a construirlo juntos!
+                    `;
+                    
+                    resultContainer.innerHTML = parseMarkdownToHTML(fakeApiResponse);
+                    
+                    loader.style.display = 'none';
+                    resultContainer.style.display = 'block';
+                    actionsContainer.style.display = 'block';
+                    resultContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 2500);
+            });
+
+            copyBtn.addEventListener('click', () => {
+                navigator.clipboard.writeText(resultContainer.innerText).then(() => {
+                    copyBtn.textContent = '✅ ¡Copiado!';
+                    setTimeout(() => { copyBtn.textContent = 'Copiar Plan'; }, 3000);
+                });
+            });
+        }
+
+        function parseMarkdownToHTML(text) {
+            let html = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>'); // Negrita
+            html = html.replace(/^####\s+(.*$)/gim, '<h4 style="font-size: 1.2rem; font-weight: 700; color: var(--accent); margin-top: 1.5rem; margin-bottom: 0.5rem;">$1</h4>'); // Títulos
+            html = html.replace(/^\s*\*\s+(.*$)/gim, '<li style="margin-bottom: 0.5rem;">$1</li>'); // Items de lista
+            html = html.replace(/((<li>.*<\/li>\s*)+)/g, '<ul style="list-style-position: inside; padding-left: 1rem;">$1</ul>'); // Envuelve en UL
+            html = html.replace(/---/g, '<hr style="border-color: var(--secondary); margin: 1.5rem 0;">'); // Separadores
+            return html;
+        }
+
+
+        // --- INICIALIZACIÓN DE TODAS LAS FUNCIONES ---
+        setupComparisonTable();
+        setupWhatsAppLink();
+        setupAIPlanner();
+    });
+    </script>
 </body>
 </html>
